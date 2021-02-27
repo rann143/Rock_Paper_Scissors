@@ -6,6 +6,19 @@
     </head>
     <body>
         <script>
+        
+        //Global variables
+        let lowerCaseInput;
+        let capFirstLet;
+        let finalSelection;
+        let plRockWin;
+        let plRockLoss;
+        let plPaperWin;
+        let plPaperLoss;
+        let plScisWin;
+        let plScisLoss;
+        let tie;
+
 
         //Computer play choice (chooses randomly)
         function computerPlay(){
@@ -13,23 +26,28 @@
             play = options[Math.floor(Math.random()*options.length)];
             return play;
         }
+        
+        //capitalize input
+        function capitalize(playerSelection){
+            lowerCaseInput = playerSelection.slice(1).toLowerCase();
+            capFirstLet = playerSelection.slice(0,1).toUpperCase();
+            finalSelection = capFirstLet + lowerCaseInput;
+        }
 
 
         function playRound(playerSelection, computerSelection){
 
             //Standardize player input
-            let lowerCaseInput = playerSelection.slice(1).toLowerCase();
-            let capFirstLet = playerSelection.slice(0,1).toUpperCase();
-            let finalSelection = capFirstLet + lowerCaseInput;
+            capitalize(playerSelection);
 
             //Return win/loss statements
-            let plRockWin = "You Win! Rock beats Scissors!";
-            let plRockLoss = "You Lose. Paper beats Rock.";
-            let plPaperWin = "You Win! Paper beats Rock!";
-            let plPaperLoss = "You Lose. Scissors beats Paper.";
-            let plScisWin = "You Win! Scissors beats Paper!";
-            let plScisLoss = "You Lose. Rock beats Scissors.";
-            let tie = "You tied. Play again";
+            plRockWin = "You Win! Rock beats Scissors!";
+            plRockLoss = "You Lose. Paper beats Rock.";
+            plPaperWin = "You Win! Paper beats Rock!";
+            plPaperLoss = "You Lose. Scissors beats Paper.";
+            plScisWin = "You Win! Scissors beats Paper!";
+            plScisLoss = "You Lose. Rock beats Scissors.";
+            tie = "You tied. Play again";
 
             //Gameplay outcomes
             if (finalSelection === "Rock" && computerSelection === "Scissors")
@@ -64,6 +82,99 @@
             {
                 alert("Please enter \'Rock\', \'Paper\', or \'Scissors\' (not case sensitive)");
             }
+        }
+
+        function game(){
+            let plCount = 0;
+            let cpCount = 0;
+            let playerSelection;
+            let outcome;
+
+            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
+            playRound(playerSelection, computerPlay());
+            outcome = playRound(playerSelection, computerPlay());
+            console.log(outcome);
+            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
+                plCount++
+            } 
+            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
+                cpCount++
+            }
+            else{
+                plCount = plCount;
+                cpCount = cpCount;
+            }
+
+            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
+            playRound(playerSelection, computerPlay());
+            outcome = playRound(playerSelection, computerPlay());
+            console.log(outcome);
+            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
+                plCount++
+            } 
+            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
+                cpCount++
+            }
+            else{
+                plCount = plCount;
+                cpCount = cpCount;
+            }
+
+            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
+            playRound(playerSelection, computerPlay());
+            outcome = playRound(playerSelection, computerPlay());
+            console.log(outcome);
+            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
+                plCount++
+            } 
+            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
+                cpCount++
+            }
+            else{
+                plCount = plCount;
+                cpCount = cpCount;
+            }
+
+            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
+            playRound(playerSelection, computerPlay());
+            outcome = playRound(playerSelection, computerPlay());
+            console.log(outcome);
+            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
+                plCount++
+            } 
+            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
+                cpCount++
+            }
+            else{
+                plCount = plCount;
+                cpCount = cpCount;
+            }
+
+            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
+            playRound(playerSelection, computerPlay());
+            outcome = playRound(playerSelection, computerPlay());
+            console.log(outcome);
+            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
+                plCount++
+            } 
+            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
+                cpCount++
+            }
+            else{
+                plCount = plCount;
+                cpCount = cpCount;
+            }
+
+            if (plCount > cpCount){
+                alert("YOU WON THE WHOLE GAME");    
+            }
+            else if (plCount < cpCount){
+                alert("YOU LOST THE WHOLE GAME");
+            }
+            else{
+                alert("You tied with the computer");
+            }
+            
         }
 
         </script>
