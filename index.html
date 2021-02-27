@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta charset-"UTF-8"/>
+    </head>
+    <body>
+        <script>
+
+        //Computer play choice (chooses randomly)
+        function computerPlay(){
+            let options = ["Rock", "Paper", "Scissors"];
+            play = options[Math.floor(Math.random()*options.length)];
+            return play;
+        }
+
+
+        function playRound(playerSelection, computerSelection){
+
+            //Standardize player input
+            let lowerCaseInput = playerSelection.slice(1).toLowerCase();
+            let capFirstLet = playerSelection.slice(0,1).toUpperCase();
+            let finalSelection = capFirstLet + lowerCaseInput;
+
+            //Return win/loss statements
+            let plRockWin = "You Win! Rock beats Scissors!";
+            let plRockLoss = "You Lose. Paper beats Rock.";
+            let plPaperWin = "You Win! Paper beats Rock!";
+            let plPaperLoss = "You Lose. Scissors beats Paper.";
+            let plScisWin = "You Win! Scissors beats Paper!";
+            let plScisLoss = "You Lose. Rock beats Scissors.";
+            let tie = "You tied. Play again";
+
+            //Gameplay outcomes
+            if (finalSelection === "Rock" && computerSelection === "Scissors")
+            {
+                return plRockWin;
+            }
+            else if (finalSelection === "Rock" && computerSelection === "Paper") 
+            {
+                return plRockLoss;
+            }
+            else if (finalSelection === "Paper" && computerSelection === "Rock")
+            {
+                return plPaperWin;
+            }
+            else if (finalSelection === "Paper" && computerSelection === "Scissors")
+            {
+                return plPaperLoss;
+            }
+            else if (finalSelection === "Scissors" && computerSelection === "Paper")
+            {
+                return plScisWin;
+            }
+            else if (finalSelection === "Scissors" && computerSelection === "Rock")
+            {
+                return plScisLoss;
+            }
+            else if (finalSelection === computerSelection)
+            {
+                return tie;
+            }
+            else
+            {
+                alert("Please enter \'Rock\', \'Paper\', or \'Scissors\' (not case sensitive)");
+            }
+        }
+
+        </script>
+    </body>
+</html>
