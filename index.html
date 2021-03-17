@@ -1,182 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Page Title</title>
+        <title>Rock, Paper, Scissors Game</title>
         <meta charset-"UTF-8"/>
+        <link rel="stylesheet" href="rps_style.css">
     </head>
     <body>
-        <script>
-        
-        //Global variables
-        let lowerCaseInput;
-        let capFirstLet;
-        let finalSelection;
-        let plRockWin;
-        let plRockLoss;
-        let plPaperWin;
-        let plPaperLoss;
-        let plScisWin;
-        let plScisLoss;
-        let tie;
+        <div class='game-title'>
+        <h1>Rock, Paper, Scissors</h1>
+        <h3 style="color: rgb(179, 176, 176);">First to win 5 rounds is the victor!</h3>
+        </div>
+        <div class="button-wrapper">
+            <h2>Choose Your Weapon!</h2>
+            <div>
+                <button id="rock" class="buttons">Rock</button>
+                <button id="paper" class="buttons">Paper</button>
+                <button id="scis" class="buttons">Scissors</button>
+            </div>
+        </div>
+        <div id="outcome-container">
+            <h2>Outcome</h2>
+        </div>
+        <div id="score-container">
+            <h2 id='score-title'>Score</h2>
 
+            <div id="pl-score">
+            <h3>Hero (you)</h3>
+            </div>
 
-        //Computer play choice (chooses randomly)
-        function computerPlay(){
-            let options = ["Rock", "Paper", "Scissors"];
-            play = options[Math.floor(Math.random()*options.length)];
-            return play;
-        }
-        
-        //capitalize input
-        function capitalize(playerSelection){
-            lowerCaseInput = playerSelection.slice(1).toLowerCase();
-            capFirstLet = playerSelection.slice(0,1).toUpperCase();
-            finalSelection = capFirstLet + lowerCaseInput;
-        }
+            <div id="cp-score">
+            <h3>Dirty Witch (cpu)</h3>
+            </div>
 
-
-        function playRound(playerSelection, computerSelection){
-
-            //Standardize player input
-            capitalize(playerSelection);
-
-            //Return win/loss statements
-            plRockWin = "You Win! Rock beats Scissors!";
-            plRockLoss = "You Lose. Paper beats Rock.";
-            plPaperWin = "You Win! Paper beats Rock!";
-            plPaperLoss = "You Lose. Scissors beats Paper.";
-            plScisWin = "You Win! Scissors beats Paper!";
-            plScisLoss = "You Lose. Rock beats Scissors.";
-            tie = "You tied. Play again";
-
-            //Gameplay outcomes
-            if (finalSelection === "Rock" && computerSelection === "Scissors")
-            {
-                return plRockWin;
-            }
-            else if (finalSelection === "Rock" && computerSelection === "Paper") 
-            {
-                return plRockLoss;
-            }
-            else if (finalSelection === "Paper" && computerSelection === "Rock")
-            {
-                return plPaperWin;
-            }
-            else if (finalSelection === "Paper" && computerSelection === "Scissors")
-            {
-                return plPaperLoss;
-            }
-            else if (finalSelection === "Scissors" && computerSelection === "Paper")
-            {
-                return plScisWin;
-            }
-            else if (finalSelection === "Scissors" && computerSelection === "Rock")
-            {
-                return plScisLoss;
-            }
-            else if (finalSelection === computerSelection)
-            {
-                return tie;
-            }
-            else
-            {
-                alert("Please enter \'Rock\', \'Paper\', or \'Scissors\' (not case sensitive)");
-            }
-        }
-
-        function game(){
-            let plCount = 0;
-            let cpCount = 0;
-            let playerSelection;
-            let outcome;
-
-            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
-            playRound(playerSelection, computerPlay());
-            outcome = playRound(playerSelection, computerPlay());
-            console.log(outcome);
-            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
-                plCount++
-            } 
-            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
-                cpCount++
-            }
-            else{
-                plCount = plCount;
-                cpCount = cpCount;
-            }
-
-            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
-            playRound(playerSelection, computerPlay());
-            outcome = playRound(playerSelection, computerPlay());
-            console.log(outcome);
-            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
-                plCount++
-            } 
-            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
-                cpCount++
-            }
-            else{
-                plCount = plCount;
-                cpCount = cpCount;
-            }
-
-            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
-            playRound(playerSelection, computerPlay());
-            outcome = playRound(playerSelection, computerPlay());
-            console.log(outcome);
-            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
-                plCount++
-            } 
-            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
-                cpCount++
-            }
-            else{
-                plCount = plCount;
-                cpCount = cpCount;
-            }
-
-            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
-            playRound(playerSelection, computerPlay());
-            outcome = playRound(playerSelection, computerPlay());
-            console.log(outcome);
-            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
-                plCount++
-            } 
-            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
-                cpCount++
-            }
-            else{
-                plCount = plCount;
-                cpCount = cpCount;
-            }
-
-            playerSelection = prompt("Choose Rock, Paper, or Scissors!");
-            playRound(playerSelection, computerPlay());
-            outcome = playRound(playerSelection, computerPlay());
-            console.log(outcome);
-            if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
-                plCount++
-            } 
-            else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
-                cpCount++
-            }
-            else{
-                plCount = plCount;
-                cpCount = cpCount;
-            }
-
-            if (plCount > cpCount){
-                alert("YOU WON THE WHOLE GAME");    
-            }
-            else if (plCount < cpCount){
-                alert("YOU LOST THE WHOLE GAME");
-            }
-            else{
-                alert("You tied with the computer");
-            }
-            
-        }
-
-        </script>
+        </div>
+        <script type="text/javascript" src="rps.js"></script>
     </body>
 </html>
