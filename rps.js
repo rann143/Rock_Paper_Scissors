@@ -72,7 +72,7 @@ rockButton.addEventListener('click', () => {
         computerScore.textContent = cpCount;   
     }
     else if (cpCount === 5){
-        alert("YOU LOST TO THAT DIRTY WITCH");
+        alert("YOU LOST TO THAT EVIL MONSTER");
         plCount = 0;
         cpCount = 0; 
         playerScore.textContent = plCount;
@@ -113,7 +113,7 @@ papButton.addEventListener('click', () => {
         computerScore.textContent = cpCount;   
     }
     else if (cpCount === 5){
-        alert("YOU LOST TO THAT DIRTY WITCH");
+        alert("YOU LOST TO THE EVIL MONSTER");
         plCount = 0;
         cpCount = 0; 
         playerScore.textContent = plCount;
@@ -154,7 +154,7 @@ scisButton.addEventListener('click', () => {
         computerScore.textContent = cpCount;   
     }
     else if (cpCount === 5){
-        alert("YOU LOST TO THAT DIRTY WITCH");
+        alert("YOU LOST TO THE EVIL MONSTER");
         plCount = 0;
         cpCount = 0; 
         playerScore.textContent = plCount;
@@ -231,35 +231,3 @@ function playRound(playerSelection, computerSelection){
        
     }
 }
-
-
-/*function game(){
-    let plCount = 0;
-    let cpCount = 0;
-    let playerSelection;
-    let outcome;
-
-    outcome = playRound(playerSelection, computerPlay());
-    console.log(outcome);
-    if (outcome == plRockWin || outcome == plPaperWin || outcome == plScisWin){
-        plCount++
-    } 
-    else if (outcome == plRockLoss || outcome == plPaperLoss || outcome == plScisLoss){
-        cpCount++
-    }
-    else{
-        plCount = plCount;
-        cpCount = cpCount;
-    }
-
-    if (plCount > cpCount){
-        alert("YOU WON THE WHOLE GAME. Computers suck.");    
-    }
-    else if (plCount < cpCount){
-        alert("YOU LOST THE WHOLE GAME");
-    }
-    else{
-        alert("You tied with the computer");
-    }
-    
-}*/
